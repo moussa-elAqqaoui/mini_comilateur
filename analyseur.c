@@ -163,9 +163,9 @@ token scanner(FILE *srcFile)
                 }
                 else
                 {
-                    if (c == '.')
+                    if (in_char == '.')
                     {
-                        buffer_char(c);
+                        buffer_char(in_char);
                         for (c = fgetc(srcFile); isdigit(c); c = fgetc(srcFile))
                             buffer_char(c);
                         if (c == 'e' || c == 'E')
@@ -192,6 +192,7 @@ token scanner(FILE *srcFile)
                                 lexical_error(c);
                             }
                         }
+                        ungetc(c, srcFile);
                         return FLOATLITERAL;
                     }
                     else
