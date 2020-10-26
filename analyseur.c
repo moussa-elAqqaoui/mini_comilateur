@@ -1,3 +1,5 @@
+/* analyseur lexical en language C */
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
